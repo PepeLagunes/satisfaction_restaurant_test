@@ -16,8 +16,9 @@ app.use(express.urlencoded({
 }));
 
 //database conection
+console.log(process.env.MONGO_URI)
 mongoose.connect(
-    process.env.MONGO_URI,
+    "mongodb+srv://gerardolagunes:pollo@cluster0.un9m5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     { useUnifiedTopology: true, useNewUrlParser: true}
 )
 
