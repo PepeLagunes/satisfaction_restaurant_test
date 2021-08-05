@@ -3,6 +3,7 @@ console.log("Hola tu mundo");
 
 const express = require('express');
 const cors = require('cors');
+const mongoose = require('mongoose')
 
 // Global app object
 const app = express();
@@ -13,6 +14,13 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended: true
 }));
+
+//database conection
+mongoose.connect(
+    process.env.MONGO_URI,
+    { useUnifiedTopology: true, useNewUrlParser: true}
+)
+
 
 app.get("/", function(req, res){
     res.send("Welcome to costumer satisfaction API")
